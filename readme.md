@@ -20,9 +20,9 @@ of shortcuts to suite your operating system. The shortcuts are in
 
 # Thanks
 
-- (JetBrains Rider)[https://jetbrains.com/rider]
-- (Kenney)[https://kenney.nl]
-- (Pixabay for audio)(https://pixabay.com/)
+- [JetBrains Rider](https://jetbrains.com/rider)
+- [Kenney](https://kenney.nl)
+- [Pixabay for audio](https://pixabay.com/)
 - Super Mario World for some sound effects.
-- (Godot Shaders)(https://godotshaders.com)
+- [Godot Shaders](https://godotshaders.com)
 - Godot Community for being awesome
