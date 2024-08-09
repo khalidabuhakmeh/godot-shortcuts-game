@@ -1,6 +1,6 @@
 # Shortcut Matching Godot Game
 
-![screenshot of game with keys falling](screenshot.png)
+![screenshot of game with keys falling](./misc/screenshot.png)
 
 This is a keyboard shortcut matching game around JetBrains IDE shortucts
 in which the shortcuts spawn randomly and drop from the top of the screen. To
