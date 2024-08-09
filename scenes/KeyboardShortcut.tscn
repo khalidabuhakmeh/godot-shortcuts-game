@@ -1,11 +1,11 @@
 [gd_scene load_steps=16 format=3 uid="uid://cojhw32v1bia0"]
 
-[ext_resource type="Script" path="res://KeyboardShortcut.gd" id="1_0my1x"]
-[ext_resource type="Texture2D" uid="uid://dkak6v103lx8i" path="res://images/star.png" id="2_3qav1"]
-[ext_resource type="Texture2D" uid="uid://bw0a7l0bbcwxk" path="res://images/heart.png" id="3_clblg"]
-[ext_resource type="Texture2D" uid="uid://cylebim0wunt6" path="res://images/sparkle.png" id="4_2vulb"]
-[ext_resource type="AudioStream" uid="uid://c4nmgqgc4w08l" path="res://audio/smw_1-up.wav" id="5_thviv"]
-[ext_resource type="AudioStream" uid="uid://dv3d1ny2pyfjq" path="res://audio/smw_spin_jump.wav" id="6_7036i"]
+[ext_resource type="Script" path="res://scenes/KeyboardShortcut.gd" id="1_ko1sp"]
+[ext_resource type="Texture2D" uid="uid://dkak6v103lx8i" path="res://images/star.png" id="2_8q3nn"]
+[ext_resource type="Texture2D" uid="uid://bw0a7l0bbcwxk" path="res://images/heart.png" id="3_3jmd1"]
+[ext_resource type="Texture2D" uid="uid://cylebim0wunt6" path="res://images/sparkle.png" id="4_ejs8l"]
+[ext_resource type="AudioStream" uid="uid://c4nmgqgc4w08l" path="res://audio/smw_1-up.wav" id="5_mvnur"]
+[ext_resource type="AudioStream" uid="uid://dv3d1ny2pyfjq" path="res://audio/smw_spin_jump.wav" id="6_cx628"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vusqp"]
 blend_mode = 1
@@ -241,7 +241,7 @@ _data = {
 }
 
 [node name="Shortcut" type="Node2D"]
-script = ExtResource("1_0my1x")
+script = ExtResource("1_ko1sp")
 
 [node name="Stars" type="CPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_vusqp")
@@ -252,7 +252,7 @@ speed_scale = 0.5
 explosiveness = 0.25
 randomness = 0.46
 lifetime_randomness = 0.54
-texture = ExtResource("2_3qav1")
+texture = ExtResource("2_8q3nn")
 spread = 180.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 415.03
@@ -276,7 +276,7 @@ speed_scale = 0.5
 explosiveness = 0.5
 randomness = 0.16
 lifetime_randomness = 0.54
-texture = ExtResource("3_clblg")
+texture = ExtResource("3_3jmd1")
 spread = 180.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 415.03
@@ -296,7 +296,7 @@ hue_variation_max = 0.57
 material = SubResource("CanvasItemMaterial_qpc8u")
 speed_scale = 0.29
 randomness = 0.8
-texture = ExtResource("4_2vulb")
+texture = ExtResource("4_ejs8l")
 emission_shape = 3
 emission_rect_extents = Vector2(100, 30)
 particle_flag_align_y = true
@@ -359,7 +359,7 @@ libraries = {
 }
 
 [node name="Score" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_thviv")
+stream = ExtResource("5_mvnur")
 
 [node name="Oops" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_7036i")
+stream = ExtResource("6_cx628")

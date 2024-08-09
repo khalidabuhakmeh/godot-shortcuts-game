@@ -1,6 +1,6 @@
 extends Node2D
 
-var shortcut_scene: PackedScene = preload("res://KeyboardShortcut.tscn")
+var shortcut_scene: PackedScene = preload("res://scenes/KeyboardShortcut.tscn")
 
 @export var buffer_timeout := 0.500
 @export var spawn_point_speed := 25
