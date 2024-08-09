@@ -1,0 +1,365 @@
+[gd_scene load_steps=16 format=3 uid="uid://cojhw32v1bia0"]
+
+[ext_resource type="Script" path="res://KeyboardShortcut.gd" id="1_0my1x"]
+[ext_resource type="Texture2D" uid="uid://dkak6v103lx8i" path="res://images/star.png" id="2_3qav1"]
+[ext_resource type="Texture2D" uid="uid://bw0a7l0bbcwxk" path="res://images/heart.png" id="3_clblg"]
+[ext_resource type="Texture2D" uid="uid://cylebim0wunt6" path="res://images/sparkle.png" id="4_2vulb"]
+[ext_resource type="AudioStream" uid="uid://c4nmgqgc4w08l" path="res://audio/smw_1-up.wav" id="5_thviv"]
+[ext_resource type="AudioStream" uid="uid://dv3d1ny2pyfjq" path="res://audio/smw_spin_jump.wav" id="6_7036i"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vusqp"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_ogoyn"]
+offsets = PackedFloat32Array(0.0116054, 0.628627, 0.953578, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.20915, 0.20915, 0.20915, 1, 0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qpc8u"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_nq0ka"]
+_data = [Vector2(0.184348, 0.912239), 0.0, 0.0, 0, 0, Vector2(0.886957, 0.328441), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_huoit"]
+offsets = PackedFloat32Array(0, 0.253385, 1)
+colors = PackedColorArray(0.786806, 0.745977, 0.00280313, 1, 0.91464, 0.898292, 0.600735, 1, 1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b2vdo"]
+bg_color = Color(0.118581, 0.118581, 0.118581, 1)
+border_width_bottom = 3
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0.999975, 0.737396, 0.69471, 0.6)
+
+[sub_resource type="Animation" id="Animation_o4ok0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sparkles:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.8, 0.8)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Score:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Stars:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_jgtod"]
+resource_name = "score"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Stars:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hearts:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sparkles:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(2, 2),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Control:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.8, 0.8)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Control:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.785398]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Control:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -50), Vector2(0, 200)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Score:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e3a16"]
+_data = {
+"RESET": SubResource("Animation_o4ok0"),
+"score": SubResource("Animation_jgtod")
+}
+
+[node name="Shortcut" type="Node2D"]
+script = ExtResource("1_0my1x")
+
+[node name="Stars" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_vusqp")
+emitting = false
+amount = 5
+lifetime = 0.5
+speed_scale = 0.5
+explosiveness = 0.25
+randomness = 0.46
+lifetime_randomness = 0.54
+texture = ExtResource("2_3qav1")
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 415.03
+initial_velocity_max = 604.57
+linear_accel_min = 28.1
+linear_accel_max = 28.1
+radial_accel_min = 23.53
+radial_accel_max = 66.01
+scale_amount_min = 0.1
+scale_amount_max = 0.4
+color = Color(1, 1, 0.0235294, 1)
+color_ramp = SubResource("Gradient_ogoyn")
+
+[node name="Hearts" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_vusqp")
+emitting = false
+amount = 3
+lifetime = 0.5
+one_shot = true
+speed_scale = 0.5
+explosiveness = 0.5
+randomness = 0.16
+lifetime_randomness = 0.54
+texture = ExtResource("3_clblg")
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 415.03
+initial_velocity_max = 604.57
+linear_accel_min = 28.1
+linear_accel_max = 28.1
+radial_accel_min = 23.53
+radial_accel_max = 66.01
+scale_amount_min = 0.1
+scale_amount_max = 0.4
+color = Color(1, 0.0392157, 0.0235294, 1)
+color_ramp = SubResource("Gradient_ogoyn")
+hue_variation_min = -0.42
+hue_variation_max = 0.57
+
+[node name="Sparkles" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_qpc8u")
+speed_scale = 0.29
+randomness = 0.8
+texture = ExtResource("4_2vulb")
+emission_shape = 3
+emission_rect_extents = Vector2(100, 30)
+particle_flag_align_y = true
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, -980)
+initial_velocity_min = 14.6
+initial_velocity_max = 302.92
+scale_amount_min = 0.02
+scale_amount_max = 0.2
+scale_amount_curve = SubResource("Curve_nq0ka")
+color = Color(0.986565, 0.986511, 7.70092e-07, 0.380392)
+color_ramp = SubResource("Gradient_huoit")
+hue_variation_min = -1.0
+hue_variation_max = 0.65
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Panel" type="Panel" parent="Control/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_b2vdo")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Label" type="Label" parent="Control/MarginContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 36
+text = "Hello World"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_e3a16")
+}
+
+[node name="Score" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_thviv")
+
+[node name="Oops" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_7036i")
